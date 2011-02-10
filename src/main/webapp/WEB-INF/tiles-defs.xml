@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<definition name="marketingSurveyForm" template="/WEB-INF/jsp/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/defaultheader.jsp" />
+		<put-attribute name="title" value="Marketing Survey Form" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/defaultmenu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/marketingSurveyForm.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/defaultfooter.jsp" />
+		<put-attribute name="jsFunctionName" value=""/>
+	</definition>
+
+	<definition name="marketingSurveyList" template="/WEB-INF/jsp/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/defaultheader.jsp" />
+		<put-attribute name="title" value="Marketing Survey List" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/defaultmenu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/marketingSurveyList.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/defaultfooter.jsp" />
+		<put-attribute name="jsFunctionName" value="csurvey.ClientList"/>
+	</definition>
+	<definition name="marketingSurveyPlanner" template="/WEB-INF/jsp/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/defaultheader.jsp" />
+		<put-attribute name="title" value="Marketing Survey List" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/defaultmenu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/marketingSurveyPlanner.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/defaultfooter.jsp" />
+		<put-attribute name="jsFunctionName" value="csurvey.RegionList"/>
+	</definition>
+
+</tiles-definitions>
