@@ -1,0 +1,128 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+}
+
+body {
+background-color: #F8F8F8;
+	color: #707070;
+	font-family: Tahoma, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 14px;
+	margin: 0 0 0 0; /* Sets the margin properties for an element using shorthand notation (top, right, bottom, left) */
+	padding: 0 0 0 0; /* Sets the padding properties for an element using shorthand notation (top, right, bottom, left) */
+	text-align: center; /* Centers the page content container in IE 5 browsers. */
+}
+
+#header {
+background-color:#F3F2ED;
+height:80px;
+line-height:80px;
+margin:0;
+padding-left:10px;
+}
+h1 {
+	color: #606060;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 14px;
+	padding: 20px;
+}
+h2 {
+	color: #606060;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 14px;
+}
+a, a:link {
+	color: #00CCFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:visited {
+	color: #606060;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:hover {
+	color: #CC0000;
+	text-decoration: underline;
+}
+a:focus {
+	color: #CCCCFF;
+}
+a:active {
+	color: #000000;
+}
+.foobar {
+	
+}
+#outerWrapper {
+	background-color: #FFFFFF;
+	margin: 0 auto 0 auto; /* Sets the margin properties for an element using shorthand notation (top, right, bottom, left) */
+	min-width: 760px;
+	text-align: left; /* Redefines the text alignment defined by the body element. */
+	width: 80%;
+}
+#outerWrapper #header {
+	background-color: #00CCFF;
+	border-bottom: solid 4px #606060; /* Sets the bottom border properties for an element using shorthand notation */
+	border-top: solid 4px #606060;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 15px;
+	padding: 10px 10px 10px 10px; /* Sets the padding properties for an element using shorthand notation (top, right, bottom, left) */
+}
+#outerWrapper #contentWrapper #menu {
+	background-color: #eef6ed;
+	border-right: solid 0px #606060; /* Sets the right border properties for an element using shorthand notation */
+	border-left: solid 0px #606060;
+	float: left;
+	padding: 10px 10px 10px 10px; /* Sets the padding properties for an element using shorthand notation (top, right, bottom, left) */
+	width: 14%;
+}
+#outerWrapper #contentWrapper #content {
+	margin: 0 0 0 3%; /* Sets the margin properties for an element using shorthand notation (top, right, bottom, left) */
+	padding: 10px 10px 10px 10px; /* Sets the padding properties for an element using shorthand notation (top, right, bottom, left) */
+}
+/* Using floated elements and a clear float class is a common method to accomplish multiple column tableless layouts. If floated elements are used without being cleared the elements following will wrap around the floated element. This class should be applied to an element after the last floated element and before the close of the container with floated elements. */
+#outerWrapper #contentWrapper .clearFloat {
+	clear: left;
+	display: block;
+}
+#outerWrapper #footer {
+	background-color: #00CCFF;
+	border-top: solid 1px #8ab573; /* Sets the top border properties for an element using shorthand notation */
+	padding: 0px; /* Sets the padding properties for an element using shorthand notation (top, right, bottom, left) */
+	border-bottom: solid 4px #606060; /* Sets the bottom border properties for an element using shorthand notation */
+	border-top: solid 4px #606060;
+}
+#menu {
+background:#F6F0E0;
+float:left;width:200px
+}
+#menu ul {
+margin:15px 0;
+padding:20;
+list-style-type:none;
+}
+
+#menu li{
+margin-bottom:5px;
+}
+
+
+#content {
+text-align:left;
+float:left;
+width:750px
+}
+
+#footer { 
+background:#BFBD93;
+clear:both;
+width:100%
+}
