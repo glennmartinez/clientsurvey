@@ -39,22 +39,6 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.informix</groupId>
-			<artifactId>ifxjdbcx</artifactId>
-			<version>0.0.1-RELEASE</version>
-			<type>jar</type>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/ifxjdbcx.jar</systemPath>
-		</dependency>
-			<dependency>
-			<groupId>com.informix</groupId>
-			<artifactId>ifxjdbc</artifactId>
-			<version>0.0.1-RELEASE</version>
-			<type>jar</type>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/ifxjdbc.jar</systemPath>
-		</dependency>
-		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>r07</version>
@@ -163,6 +147,13 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>1.4</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.7</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>

@@ -18,11 +18,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.CallableStatementCallback;
 import org.springframework.jdbc.core.CallableStatementCreator;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.SqlParameter;
+import org.apache.poi.*;
 
 public final class BasicMarketingSurveyDao implements MarketingSurveyDao {
 
@@ -61,6 +63,47 @@ public final class BasicMarketingSurveyDao implements MarketingSurveyDao {
 
 		});
 	}
+	
+	public List<MarketingSurvey> getPlannerTotalsList2(MarketingSurvey params2){
+		
+		final String rundate = params2.getIntDate();
+		
+		
+		return jdbcTemplate.execute("{call myprod(?)}", new CallableStatementCallback<List<MarketingSurvey>>(){
+			
+		public List<MarketingSurvey> doInCallableStatement(CallableStatement cs) throws SQLException,
+		DataAccessException{
+			
+			 	cs.setString(1, rundate);
+			 	ResultSet rs = null;
+			 	List<MarketingSurvey> marketingSurveyList = new ArrayList<MarketingSurvey>();
+			 	                               try {
+			 	                                       rs = cs.executeQuery();
+			 	                                       while (rs.next()) {
+			 	                                            MarketingSurvey marketingSurvey = new MarketingSurvey();
+			 	                                           	                                             
+			 	                                 			marketingSurvey.setClientId(rs.getString("mks_prospectid"));
+			 	                                 			marketingSurvey.setContact(rs.getString("mks_contact"));
+			 	                                 			marketingSurvey.setInterviewDate(rs.getDate("mks_interviewDate"));
+			 	                                 			marketingSurvey.setClientType(rs.getString("mks_clienttype"));
+			 	                                 			marketingSurvey.setPlannerName(rs.getString("mks_plannername"));
+			 	                                 			marketingSurvey.setDateofBirth(rs.getDate("mks_dateofbirth"));
+			 	                                 			marketingSurvey.setPlannerRegion(rs.getString("mks_plannerregion"));
+			 	                                 			marketingSurvey.setEmail(rs.getString("mks_prefer_email"));
+
+			 	                                               marketingSurveyList.add(marketingSurvey);
+			 	                                       }
+			 	                               }
+			 	                               finally {
+			 	                                       rs.close();
+			 	                               }
+			 	                               return marketingSurveyList;
+			 	                       }
+			 	               });
+		}
+		
+		
+	
 	
 	public List<MarketingSurvey> getPlannerTotalsList(MarketingSurvey params2) {
 			//SimpleDateFormat checkIT = new SimpleDateFormat("yyyy-mm-dd");
@@ -109,11 +152,8 @@ public final class BasicMarketingSurveyDao implements MarketingSurveyDao {
 				
 		});
         
-		
 	
-		
-		
-		}
+			} 
 
 	public MarketingSurvey getMarketingSurvey(Integer id) {
 		throw new NotImplementedException();

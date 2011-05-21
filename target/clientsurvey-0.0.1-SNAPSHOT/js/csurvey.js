@@ -59,40 +59,63 @@ csurvey.ClientList = function() {
 
 };
 
-	      csurvey.RegionList = function() {
-	var oTable = $('#table2').dataTable({
+csurvey.RegionList = function() {
+	
+	
+	 function loadDatatables(){
+		$('#table2').dataTable({
 			"bProcessing": true,
-			"sAjaxSource": "/clientsurvey/marketingSurvey/planner2.html",
 			"sPaginationType": "full_numbers"
 		});
 		
-	$('#rundate').keyup( function (){
-		
-		oTable.fnFilter(this.value,6);
-		
-	});
+	};
 	
-	$('#submit').click(function() {
+	$('#submit').click(function(){
+		//loadDatatables();
 		sentDateToServer();
+		
 	});
-	
-	
-	
-	
-	function sentDateToServer(){
+	function getData(){
 		var passDate = $('#rundate').val();
 		$.ajax({
 			type: 'GET',
-			url: '/clientsurvey/marketingSurvey/planner2.html?runDate=' + passDate,
-		
+			url: '/clientsurvey/marketingSurvey/tbody.html?runDate=' + passDate,
+			success: function(marketingSurveyList){
+					$('#table2').dataTable({
+					"bProcessing": true,
+					"sPaginationType": "full_numbers",
+					'bDestroy': true
+				});
+			}
+				
+				
+			
 		});
 				
 	}	
-	function show_alert(){
-	var rundate = $('#rundate');	
-	var msg = "welcome to client survey";
-	alert(msg + rundate);
 		
+	function sentDateToServer(){
+	var passDate = $('#rundate').val();	
+	var oTable = $('#table2').dataTable();
+	oTable.fnClearTable();
+	$('#marketingSurveyList').load('/clientsurvey/marketingSurvey/tbody.html?runDate=' + passDate,function() {
+	$('#table2').dataTable({
+		'bJQueryUI': true,
+		'bAutoWidth': true,
+		'bProcessing': true,
+		'sPaginationType': 'full_numbers',
+		'bDestroy': true
+			});		
+			
+		});
+		
+	/*$('#rundate').keyup( function (){
+		
+		oTable.fnFilter(this.value,6);
+		
+	});*/
+	
 	}
+	
 }
 

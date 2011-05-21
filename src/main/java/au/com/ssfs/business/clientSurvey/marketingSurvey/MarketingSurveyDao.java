@@ -18,7 +18,9 @@ public interface MarketingSurveyDao {
 	public void executeClientSurveyProcedure(Date startDate, Date endDate);
 	
 	public List<MarketingSurvey> getPlannerTotalsList(MarketingSurvey params2);
-		
+	
+
+	public List<MarketingSurvey> getPlannerTotalsList2(MarketingSurvey params2);
 	public searchParameters getParameters(MarketingSurvey params);
 	
 	public Integer getiTotalRecords(MarketingSurvey params);

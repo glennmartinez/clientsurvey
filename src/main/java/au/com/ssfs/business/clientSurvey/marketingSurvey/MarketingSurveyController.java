@@ -174,22 +174,21 @@ public class MarketingSurveyController {
 		}
 	
 	@RequestMapping(value = "/planner", method = RequestMethod.GET)
-	
 	public String getPlannerTotalsList(Model model,HttpServletRequest request){
 		MarketingSurvey params2 = new MarketingSurvey();
-		params2.setIntDate(request.getParameter("sSearch_6"));
+		params2.setIntDate(request.getParameter("rundate"));
 		List<MarketingSurvey> marketingSurveyList = marketingSurveyDao.getPlannerTotalsList(params2);
 		model.addAttribute("marketingSurveyList", marketingSurveyList);
 		return "marketingSurveyPlanner";
 		
 	}
 	
-	@RequestMapping(value = "/planner2", method = RequestMethod.GET)
-	@ResponseBody
-	public String getPlannerTotalsList(HttpServletRequest request) {
+	@RequestMapping(value = "/tbody", method = RequestMethod.GET)
+	public String getPlannerTotalsList2(HttpServletRequest request, Model model) {
 		MarketingSurvey params2 = new MarketingSurvey();
 		params2.setIntDate(request.getParameter("runDate"));
-		List<MarketingSurvey> marketingSurveyList = marketingSurveyDao.getPlannerTotalsList(params2);
+		List<MarketingSurvey> marketingSurveyList = marketingSurveyDao.getPlannerTotalsList2(params2);
+		model.addAttribute("marketingSurveyList", marketingSurveyList);
 		int listsize = marketingSurveyList.size();
 		String[][] aaData = new String[marketingSurveyList.size()][8];
 		
@@ -205,10 +204,21 @@ public class MarketingSurveyController {
 			}
 			String obj = new Gson().toJson(aaData);
 			obj =  "{\"aaData\":" + obj + "}";
-			return obj;
-			//return "marketingSurveyPlanner";
+			return "plannerList";
+			
+			//return "marketingSurveyList2";
 		//model.addAttribute("marketingSurveyList", marketingSurveyList);
 		//return "marketingSurveyPlanner";
 		//return marketingSurveyList;
+	}
+	
+	@RequestMapping(value = "/region", method = RequestMethod.GET)
+	public String getPlannerTotalsList2(Model model,HttpServletRequest request){
+		MarketingSurvey params2 = new MarketingSurvey();
+		params2.setIntDate(request.getParameter("rundate"));
+		List<MarketingSurvey> marketingSurveyList = marketingSurveyDao.getPlannerTotalsList(params2);
+		model.addAttribute("marketingSurveyList", marketingSurveyList);
+		return "marketingSurveyRegion";
+		
 	}
 }

@@ -27,5 +27,16 @@
 		<put-attribute name="footer" value="/WEB-INF/jsp/defaultfooter.jsp" />
 		<put-attribute name="jsFunctionName" value="csurvey.RegionList"/>
 	</definition>
+	<definition name="plannerList" template="/WEB-INF/jsp/plannerList.jsp" />
+	
+	<definition name="marketingSurveyRegion" template="/WEB-INF/jsp/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/defaultheader.jsp" />
+		<put-attribute name="title" value="Marketing Survey List" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/defaultmenu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/marketingSurveyRegion.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/defaultfooter.jsp" />
+		<put-attribute name="jsFunctionName" value="csurvey.RegionList"/>
+	</definition>
+	<definition name="plannerList" template="/WEB-INF/jsp/plannerList.jsp" />
 
 </tiles-definitions>
